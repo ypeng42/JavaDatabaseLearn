@@ -27,6 +27,9 @@ public class TransactionClass {
 //			e.printStackTrace();
 //			throw new RuntimeException(e);
 //		}
+
+		// jdbc get a connection is by calling TransactionSynchronizationManager.getResource(dataSource), first it will check
+		// whether any existing connection is bound to current thread (there should be, auto commit set to false), if not, get the connection from datasource.
 		jdbcTemplate.execute("insert into people (person_id, name) values (4, 'asjkdhadsjkqhweqkewhkashdkahd')");
 		jdbcTemplate.execute("insert into people (person_id, name) values (5, 'tttqqq')");
 		System.out.println("insert is done");
@@ -43,7 +46,7 @@ public class TransactionClass {
 //		}
 	}
 
-	public void demo() throws SQLException {
+	public void doDirectly() throws SQLException {
 //		Connection con = jdbcTemplate.getDataSource().getConnection();
 //		con.setAutoCommit(true);
 		insertValue();
@@ -56,7 +59,7 @@ public class TransactionClass {
 		System.out.println("Finish");
 	}
 
-	public void direct() {
+	public void doInTransaction() {
 		TransactionTemplate transactionTemplate = new TransactionTemplate(transactionManager);
 
 		transactionTemplate.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
@@ -64,7 +67,7 @@ public class TransactionClass {
 
 		transactionTemplate.execute(transactionStatus -> {
 			try {
-				demo();
+				doDirectly();
 			} catch (RuntimeException e) {
 				throw e;
 			} catch (Throwable e) {

@@ -10,7 +10,7 @@ public class SpringTransactionSimple {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("databases.xml");
 		TransactionClass transactionHolder = (TransactionClass) context.getBean("transactionHolder");
 
-//		transactionHolder.direct();
-		transactionHolder.demo();
+		transactionHolder.doInTransaction();
+//		transactionHolder.doDirectly();
 	}
 }

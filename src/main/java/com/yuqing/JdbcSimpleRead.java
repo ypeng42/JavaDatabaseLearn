@@ -16,6 +16,9 @@ public class JdbcSimpleRead {
 
 	public static void main(String[] args) throws ClassNotFoundException {
 		// load jdbc driver
+		// when the class is loaded, the static method of SQLServerDriver will be called:
+		// java.sql.DriverManager.registerDriver(new SQLServerDriver());
+		// so later when we call DriverManager.getConnection(), we get driver there
 		Class.forName(JDBC_DRIVER);
 
 		try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
