@@ -1,11 +1,11 @@
-package com.yuqing;
+package com.yuqing.jdbcLearn;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JdbcSimpleWrite {
+public class SimpleWrite {
 	private static final String JDBC_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	private static final String DB_URL = "jdbc:sqlserver://localhost:1433;database=myTest";
 
