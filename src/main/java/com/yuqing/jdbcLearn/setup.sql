@@ -1,3 +1,3 @@
  create table SavedData (
-	textData varchar(max)
+	textData varchar(5)
   )

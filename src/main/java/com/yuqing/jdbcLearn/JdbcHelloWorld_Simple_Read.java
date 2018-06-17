@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SimpleRead {
+public class JdbcHelloWorld_Simple_Read {
 	private static final String JDBC_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 	private static final String DB_URL = "jdbc:sqlserver://localhost:1433;database=myTest";
 
