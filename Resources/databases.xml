@@ -16,7 +16,7 @@
 		<property name="password" value="123" />
 	</bean>
 
-	<bean id="transactionHolder" class="com.yuqing.TransactionClass" />
+	<bean id="transactionHolder" class="com.yuqing.jdbcTemplate.TransactionClass" />
 
 	<bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" id="transactionManager_1">
 		<property name="sessionFactory" ref="sessionFactory_1"/>

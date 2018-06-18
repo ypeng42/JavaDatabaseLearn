@@ -1,4 +1,4 @@
-package com.yuqing.jdbcLearn;
+package com.yuqing.jdbc;
 
 import com.yuqing.DBUtils;
 

@@ -1,4 +1,4 @@
-package com.yuqing;
+package com.yuqing.jdbcTemplate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

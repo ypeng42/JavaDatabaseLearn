@@ -1,4 +1,4 @@
-package com.yuqing;
+package com.yuqing.jdbcTemplate;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
