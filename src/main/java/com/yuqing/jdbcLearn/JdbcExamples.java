@@ -26,7 +26,6 @@ public class JdbcExamples {
 		System.out.println("Done!");
 	}
 
-
 	// read committed/uncommitted allow non-repeatable read, the other 2 don't allow
 	public static void testRepeatableRead(int isoLevel) throws SQLException {
 		try (Connection conWriter = DBUtils.getConnection(false, isoLevel);
@@ -69,10 +68,10 @@ public class JdbcExamples {
 		try (Connection conWriter = DBUtils.getConnection(false);
 			Connection conReader = DBUtils.getConnection(false)) {
 			DBUtils.runSql(conWriter, "insert into SavedData(textData) values('data1')");
-			DBUtils.printAllRecords(conReader,"----------- Data after insert ------------");
+			DBUtils.printAllRecords(conReader, "----------- Data after insert ------------");
 
 			conWriter.commit();
-			DBUtils.printAllRecords(conReader,"----------- Data after commit ------------");
+			DBUtils.printAllRecords(conReader, "----------- Data after commit ------------");
 		}
 		System.out.println("Done!");
 	}
@@ -87,12 +86,12 @@ public class JdbcExamples {
 			DBUtils.runSql(conn, "insert into SavedData(textData) values('not works')");
 			conn.commit();
 		} catch (SQLException se) {
-			DBUtils.printAllRecords(conn,"----------- Data after exception, before roll back ------------");
+			DBUtils.printAllRecords(conn, "----------- Data after exception, before roll back ------------");
 
 			// Note: if debug here, and iso level is TRANSACTION_READ_COMMITTED, in UI it will show no record (not committed)
 			conn.rollback();
 
-			DBUtils.printAllRecords(conn,"----------- Data after roll back ------------");
+			DBUtils.printAllRecords(conn, "----------- Data after roll back ------------");
 		} finally {
 			conn.close();
 			System.out.println("Done!");
@@ -100,7 +99,7 @@ public class JdbcExamples {
 	}
 
 	// set it up use the most simple way, then do a simple read
-	public static void helloWorld() throws ClassNotFoundException{
+	public static void helloWorld() throws ClassNotFoundException {
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;database=myTest", "test", "123");
