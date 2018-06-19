@@ -1,5 +1,7 @@
 package com.yuqing;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -10,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBUtils {
+	private static ConfigurableApplicationContext context;
+
     public static Connection getConnection(boolean autoCommit, int isolationLevel) throws SQLException {
         Connection con = getConnection(autoCommit);
         con.setTransactionIsolation(isolationLevel);
@@ -57,4 +61,23 @@ public class DBUtils {
     public static void printAllRecords(Connection connection, String log) throws SQLException {
         printRecord(connection, "select * from SavedData", log);
     }
+
+	/**
+	 * helper method for hibernate
+	 */
+	public static void setContext(ConfigurableApplicationContext ctx) {
+		context = ctx;
+	}
+
+	public static Session getSession(boolean createNew) {
+		SessionFactory factory = (SessionFactory) context.getBean("sessionFactory_1");
+		Session session;
+		if (createNew) {
+			session = factory.openSession();
+		} else {
+			session = factory.getCurrentSession();
+		}
+
+		return session;
+	}
 }

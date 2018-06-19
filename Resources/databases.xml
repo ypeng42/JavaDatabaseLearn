@@ -23,30 +23,19 @@
 		<property name="nestedTransactionAllowed" value="true"/>
 	</bean>
 
+	<!-- TODO learn how a hibernate session is created by factory -->
 	<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" id="sessionFactory_1">
 		<property name="packagesToScan">
 			<list>
-				<value>com.yuqing</value>
+				<value>com.yuqing.hibernate.mapping</value>
 			</list>
 		</property>
-		<!--<property name="mappingDirectoryLocations">-->
-			<!--<list>-->
-				<!--<value>classpath:hibernate/lab/qiagram/generic</value>-->
-				<!--<value>classpath:hibernate/lab/qiagram/mssql</value>-->
-			<!--</list>-->
-		<!--</property>-->
 		<property name="dataSource" ref="dataSource"/>
-		<!--<property name="hibernateProperties">-->
-			<!--<map>-->
-				<!--<entry key="javax.persistence.validation.factory" value-ref="validator"/>-->
-				<!--<entry key="hibernate.cache.region_prefix" value="lab_1"/>-->
-				<!--<entry key="hibernate.dialect" value="net.labmatrix.hibernate.ExtendedSQLServerDialect"/>-->
-				<!--<entry key="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>-->
-			<!--</map>-->
-		<!--</property>-->
 	</bean>
 
-	<context:component-scan base-package="com.yuqing"/>
 
+
+
+	<context:component-scan base-package="com.yuqing"/>
 	<tx:annotation-driven transaction-manager="transactionManager_1" />
 </beans>
