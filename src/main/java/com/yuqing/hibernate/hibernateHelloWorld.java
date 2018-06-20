@@ -3,6 +3,7 @@ package com.yuqing.hibernate;
 import com.yuqing.DBUtils;
 import com.yuqing.hibernate.mapping.Student;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,7 +18,18 @@ public class hibernateHelloWorld {
 		Student student = new Student();
 		student.setName("yuqing1");
 
+		// this will set autocommit to false
+		// AbstractLogicalConnectionImplementor.getConnectionForTransactionManagement().setAutoCommit( false );
+		Transaction transaction = session.beginTransaction();
 		session.save(student);
+
+		try {
+			session.createNativeQuery("alter table Student alter column name varchar(2)").executeUpdate(); //this will rollback everything!
+		} catch(Exception e) {
+			System.out.println("error happens!");
+		}
+		transaction.commit();
+
 		System.out.println("done!");
 	}
 }
