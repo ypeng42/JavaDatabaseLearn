@@ -27,6 +27,7 @@ public class JdbcExamples {
 	}
 
 	// read committed/uncommitted allow non-repeatable read, the other 2 don't allow
+	//TODO what if iso level is different?? 1 commit 1 uncommit
 	public static void testRepeatableRead(int isoLevel) throws SQLException {
 		try (Connection conWriter = DBUtils.getConnection(false, isoLevel);
 			Connection conReader = DBUtils.getConnection(false, isoLevel)) {

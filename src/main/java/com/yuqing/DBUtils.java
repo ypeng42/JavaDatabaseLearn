@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -61,6 +63,18 @@ public class DBUtils {
     public static void printAllRecords(Connection connection, String log) throws SQLException {
         printRecord(connection, "select * from SavedData", log);
     }
+
+	/**
+	 * spring transaction helper methods
+	 */
+	public static <T> T doInTransaction(TransactionCallback<T> callback, int isoLevel, int propagation) {
+		TransactionTemplate newTemplate = (TransactionTemplate) context.getBean("transactionTemplate");
+
+		newTemplate.setPropagationBehavior(propagation);
+		newTemplate.setIsolationLevel(isoLevel);
+
+		return newTemplate.execute(callback);
+	}
 
 	/**
 	 * helper method for hibernate

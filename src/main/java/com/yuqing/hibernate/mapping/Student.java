@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "Student")
 public class Student {
 	protected Long id;
-	private String name;
+	private String name; //TODO add a age column!!
 
 	//Each @Entity needs an @Id - this is the primary key in the database
 	@Id
