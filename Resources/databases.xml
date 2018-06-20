@@ -23,6 +23,7 @@
 		<property name="nestedTransactionAllowed" value="true"/>
 	</bean>
 
+	<!-- place hibernate.properties (or hibernate.cfg.xml) on the root of classpath(maybe even anywhere in classpath), hibernate will pick it up -->
 	<!-- TODO learn how a hibernate session is created by factory -->
 	<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" id="sessionFactory_1">
 		<property name="packagesToScan">
@@ -30,7 +31,16 @@
 				<value>com.yuqing.hibernate.mapping</value>
 			</list>
 		</property>
-		<property name="dataSource" ref="dataSource"/>
+		<property name="hibernateProperties">
+			<map>
+				<entry key="hibernate.show_sql" value="true" />
+
+				<!-- set auto_commit to false through spring is not supported yet (see https://github.com/spring-projects/spring-boot/issues/9261)-->
+				<!--<entry key="hibernate.connection.autocommit" value="false" />-->
+			</map>
+		</property>
+		<property name="dataSource" ref="dataSource"/>  <!-- this will make autocommit useless since hibernate is not managing connection -->
+
 	</bean>
 
 

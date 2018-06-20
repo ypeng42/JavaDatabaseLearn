@@ -12,9 +12,12 @@ public class hibernateHelloWorld {
 		DBUtils.setContext(context);
 
 		Session session = DBUtils.getSession(true);
+		// get connection ((SessionImpl)getSession()).connection()
+
 		Student student = new Student();
-		student.setName("yuqing");
+		student.setName("yuqing1");
 
 		session.save(student);
+		System.out.println("done!");
 	}
 }
