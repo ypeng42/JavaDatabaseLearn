@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class example {
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_UNCOMMITTED)
-	public void save() {
+	public void saveInTransaction() {
 		Session session = DBUtils.getSession(false);
 
 		Student student = new Student();

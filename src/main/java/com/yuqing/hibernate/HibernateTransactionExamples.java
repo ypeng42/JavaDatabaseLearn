@@ -5,6 +5,10 @@ import com.yuqing.hibernate.mapping.Student;
 import org.hibernate.Session;
 import org.springframework.transaction.TransactionDefinition;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
 public class HibernateTransactionExamples {
 	public static void readUncommitted() {
 
@@ -37,7 +41,8 @@ public class HibernateTransactionExamples {
 		Session session = DBUtils.getSession(true);
 
 		Student student = new Student();
-		student.setName("yuqing4");
+		student.setName("yuqing");
+		student.setAge(20);
 
 		DBUtils.doInTransaction(status -> {
 
@@ -47,7 +52,7 @@ public class HibernateTransactionExamples {
 			// a new connection is created and the previous connection haven't commit
 			DBUtils.doInTransaction(s -> {
 
-				Student s2 = session.get(Student.class, 1l);
+				Student s2 = readStudentByName(session, "yuqing");
 				if (s2 != null) {
 					System.out.println(s2.getName());
 				} else {
@@ -61,5 +66,16 @@ public class HibernateTransactionExamples {
 
 
 		System.out.println("done!");
+	}
+
+	private static Student readStudentByName(Session session, String name) {
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+
+		CriteriaQuery<Student> query = builder.createQuery(Student.class);
+		Root<Student> root = query.from(Student.class);
+		query.select(root);
+		query.where(builder.equal(root.get("name"), name));
+
+		return session.createQuery(query).uniqueResult();
 	}
 }

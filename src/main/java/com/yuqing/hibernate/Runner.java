@@ -12,8 +12,8 @@ public class Runner {
 
 		DBUtils.getSession(true);
 
-//		HibernateTransactionExamples.readUncommitted2();
-		example e = (example) context.getBean("example");
-		e.save();
+		HibernateTransactionExamples.readUncommitted2();
+//		example e = (example) context.getBean("example");
+//		e.saveInTransaction();
 	}
 }

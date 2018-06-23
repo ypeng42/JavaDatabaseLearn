@@ -9,7 +9,7 @@
 		<property name="queryTimeout" value="10800"/>
 	</bean>
 
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> <!-- TODO use org.apache.commons.dbcp2.BasicDataSource to handle auto-commmit -->
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 		<property name="url" value="jdbc:sqlserver://localhost:1433;database=myTest" />
 		<property name="username" value="test" />

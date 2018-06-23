@@ -11,7 +11,8 @@ import javax.persistence.Table;
 @Table(name = "Student")
 public class Student {
 	protected Long id;
-	private String name; //TODO add a age column!!
+	private String name;
+	private Integer age;
 
 	//Each @Entity needs an @Id - this is the primary key in the database
 	@Id
@@ -30,5 +31,14 @@ public class Student {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Column(name = "age")
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 }
