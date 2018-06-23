@@ -46,8 +46,21 @@ public class JdbcExamples {
 		System.out.println("Done!");
 	}
 
+	/**
+	 * TODO put this explaination on top? refactor code
+	 * Writer's lock doesn't matter!
+	 *
+	 * Iso level only affects Shared Lock which is reader's lock.
+	 *
+	 * Writer's lock (X lock) will not be affected by iso level.
+	 *
+	 * For example, in dirty read's case, since S lock will be acquired (even though release immediately), the X S lock
+	 *
+	 * incompatibility will cause lock request to wait. (If the mode of the requested lock is not compatible with the existing lock,
+	 *  the transaction requesting the new lock waits for the existing lock to be released or for the lock timeout interval to expire)
+	 */
 	public static void testDirtyRead(int isoLevel, boolean deadLock) throws SQLException {
-		try (Connection conWriter = DBUtils.getConnection(false, isoLevel);
+		try (Connection conWriter = DBUtils.getConnection(false, Connection.TRANSACTION_READ_UNCOMMITTED);
 			Connection conReader = DBUtils.getConnection(false, isoLevel)) {
 			DBUtils.runSql(conWriter, "insert into SavedData(textData, id) values('data1', 1)");
 			DBUtils.runSql(conWriter, "insert into SavedData(textData, id) values('data2', 2)");

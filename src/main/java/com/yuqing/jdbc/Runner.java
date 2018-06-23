@@ -9,7 +9,7 @@ public class Runner {
 		// Great summary -- https://stackoverflow.com/questions/4034976/difference-between-read-commit-and-repeatable-read
 
 		// don't allow dirty read, this will cause deadlock
-//		JdbcExamples.testDirtyRead(Connection.TRANSACTION_READ_COMMITTED, false);
+		JdbcExamples.testDirtyRead(Connection.TRANSACTION_READ_COMMITTED, true);
 
 		// dirty read
 //		JdbcExamples.testDirtyRead(Connection.TRANSACTION_READ_UNCOMMITTED);
@@ -25,6 +25,6 @@ public class Runner {
 //		JdbcExamples.testPhantomRead(Connection.TRANSACTION_REPEATABLE_READ);
 
 		// this will result in deadlock! can't insert, it's locked
-		JdbcExamples.testPhantomRead(Connection.TRANSACTION_SERIALIZABLE);
+//		JdbcExamples.testPhantomRead(Connection.TRANSACTION_SERIALIZABLE);
 	}
 }
