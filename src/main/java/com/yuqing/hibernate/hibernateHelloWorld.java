@@ -15,8 +15,7 @@ public class hibernateHelloWorld {
 		Session session = DBUtils.getSession(true);
 		// get connection ((SessionImpl)getSession()).connection()
 
-		Student student = new Student();
-		student.setName("yuqing1");
+		Student student = new Student("yuqing1");
 
 		// this will set autocommit to false
 		// AbstractLogicalConnectionImplementor.getConnectionForTransactionManagement().setAutoCommit( false );

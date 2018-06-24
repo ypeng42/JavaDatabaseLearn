@@ -14,8 +14,7 @@ public class example {
 	public void saveInTransaction() {
 		Session session = DBUtils.getSession(false);
 
-		Student student = new Student();
-		student.setName("yuqing4");
+		Student student = new Student("yuqing4");
 
 		session.save(student);
 

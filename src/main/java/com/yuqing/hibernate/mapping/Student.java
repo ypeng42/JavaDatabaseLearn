@@ -14,6 +14,10 @@ public class Student {
 	private String name;
 	private Integer age;
 
+	public Student(String name) {
+		this.name = name;
+	}
+
 	//Each @Entity needs an @Id - this is the primary key in the database
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

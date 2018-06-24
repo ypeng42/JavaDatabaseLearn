@@ -3,22 +3,21 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
 		xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx">
 
-<!--  ==== jdbc template ====  -->
 	<bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate_1">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="queryTimeout" value="10800"/>
 	</bean>
 
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> <!-- TODO use org.apache.commons.dbcp2.BasicDataSource to handle auto-commmit -->
-		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<property name="url" value="jdbc:sqlserver://localhost:1433;database=myTest" />
-		<property name="username" value="test" />
-		<property name="password" value="123" />
+
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager_1"/>
 	</bean>
 
-	<bean id="transactionHolder" class="com.yuqing.jdbcTemplate.TransactionClass" />
-	<bean id="example" class="com.yuqing.hibernate.example" />
-
+	<!-- Read javadoc of this class: This transaction manager is appropriate for applications that use a single
+	    Hibernate SessionFactory for transactional data access, but it also supports
+	    direct DataSource access within a transaction (i.e. plain JDBC code working
+	    with the same DataSource). This allows for mixing services which access Hibernate
+	    and services which use plain JDBC (without being aware of Hibernate)! -->
 	<bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" id="transactionManager_1">
 		<property name="sessionFactory" ref="sessionFactory_1"/>
 		<property name="nestedTransactionAllowed" value="true"/>
@@ -44,11 +43,17 @@
 
 	</bean>
 
-
-	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
-		<property name="transactionManager" ref="transactionManager_1"/>
+	<!-- Datasource is the base, can be used by hibernate or jdbcTemplate -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> <!-- TODO use org.apache.commons.dbcp2.BasicDataSource to handle auto-commmit -->
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+		<property name="url" value="jdbc:sqlserver://localhost:1433;database=myTest" />
+		<property name="username" value="test" />
+		<property name="password" value="123" />
 	</bean>
 
+
+	<bean id="transactionHolder" class="com.yuqing.jdbcTemplate.TransactionClass" />
+	<bean id="example" class="com.yuqing.hibernate.example" />
 
 	<context:component-scan base-package="com.yuqing"/>
 	<tx:annotation-driven transaction-manager="transactionManager_1" />
