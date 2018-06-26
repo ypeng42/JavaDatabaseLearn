@@ -1,4 +1,4 @@
-package com.yuqing.hibernate.mapping;
+package com.learn.hibernate.mapping;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

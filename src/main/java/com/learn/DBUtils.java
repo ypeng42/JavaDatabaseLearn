@@ -1,4 +1,4 @@
-package com.yuqing;
+package com.learn;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

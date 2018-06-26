@@ -1,7 +1,7 @@
-package com.yuqing.hibernate;
+package com.learn.hibernate;
 
-import com.yuqing.DBUtils;
-import com.yuqing.hibernate.mapping.Student;
+import com.learn.DBUtils;
+import com.learn.hibernate.mapping.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.context.ConfigurableApplicationContext;

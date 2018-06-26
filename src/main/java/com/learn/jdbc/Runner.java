@@ -1,4 +1,4 @@
-package com.yuqing.jdbc;
+package com.learn.jdbc;
 
 import java.sql.Connection;
 

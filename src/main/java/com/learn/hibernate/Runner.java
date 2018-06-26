@@ -1,6 +1,6 @@
-package com.yuqing.hibernate;
+package com.learn.hibernate;
 
-import com.yuqing.DBUtils;
+import com.learn.DBUtils;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

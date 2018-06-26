@@ -1,6 +1,6 @@
-package com.yuqing.jdbc;
+package com.learn.jdbc;
 
-import com.yuqing.DBUtils;
+import com.learn.DBUtils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

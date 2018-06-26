@@ -52,8 +52,8 @@
 	</bean>
 
 
-	<bean id="transactionHolder" class="com.yuqing.jdbcTemplate.TransactionClass" />
-	<bean id="example" class="com.yuqing.hibernate.example" />
+	<bean id="transactionHolder" class="com.learn.jdbcTemplate.TransactionClass" />
+	<bean id="example" class="com.learn.hibernate.example" />
 
 	<context:component-scan base-package="com.yuqing"/>
 	<tx:annotation-driven transaction-manager="transactionManager_1" />
