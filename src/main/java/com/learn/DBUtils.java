@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -31,7 +32,8 @@ public class DBUtils {
     }
 
     public static Connection getConnection() throws SQLException {
-        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("databases.xml");					DriverManagerDataSource datasource = (DriverManagerDataSource) context.getBean("dataSource");
+        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("databases.xml");
+        DriverManagerDataSource datasource = (DriverManagerDataSource) context.getBean("dataSource");
         return datasource.getConnection();
     }
 
@@ -83,13 +85,18 @@ public class DBUtils {
 		context = ctx;
 	}
 
-	public static Session getSession(boolean createNew) {
+	public static JdbcTemplate getJdbcTemplate() {
+		return (JdbcTemplate) context.getBean("jdbcTemplate_1");
+	}
+
+	/**
+	 *	Return existing session if there is. If not, return a new session.
+	 */
+	public static Session getSession() {
 		SessionFactory factory = (SessionFactory) context.getBean("sessionFactory_1");
-		Session session;
-		if (createNew) {
+		Session session = factory.getCurrentSession();
+		if (session == null) {
 			session = factory.openSession();
-		} else {
-			session = factory.getCurrentSession();
 		}
 
 		return session;

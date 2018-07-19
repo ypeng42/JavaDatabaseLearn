@@ -10,11 +10,6 @@ public class Runner {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("databases.xml");
 		DBUtils.setContext(context);
 
-		DBUtils.getSession(true);
-
 		HibernateTransactionExamples.newTransactionNested();
-//		HibernateTransactionExamples.readUncommitted2();
-//		example e = (example) context.getBean("example");
-//		e.saveInTransaction();
 	}
 }

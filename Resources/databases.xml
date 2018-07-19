@@ -28,7 +28,7 @@
 	<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" id="sessionFactory_1">
 		<property name="packagesToScan">
 			<list>
-				<value>com.yuqing.hibernate.mapping</value>
+				<value>com.learn.hibernate.mapping</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -51,10 +51,6 @@
 		<property name="password" value="123" />
 	</bean>
 
-
-	<bean id="transactionHolder" class="com.learn.jdbcTemplate.TransactionClass" />
-	<bean id="example" class="com.learn.hibernate.example" />
-
-	<context:component-scan base-package="com.yuqing"/>
+	<context:component-scan base-package="com.learn"/>
 	<tx:annotation-driven transaction-manager="transactionManager_1" />
 </beans>

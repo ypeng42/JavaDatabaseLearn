@@ -12,7 +12,7 @@ public class hibernateHelloWorld {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("databases.xml");
 		DBUtils.setContext(context);
 
-		Session session = DBUtils.getSession(true);
+		Session session = DBUtils.getSession();
 		// get connection ((SessionImpl)getSession()).connection()
 
 		Student student = new Student("yuqing1");

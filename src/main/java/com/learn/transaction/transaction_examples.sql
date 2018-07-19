@@ -85,6 +85,9 @@ begin transaction
 	select * from SavedData
 commit transaction
 
+-- nolock table hint works the same way
+select * from SavedData with(nolock)
+
 
 
 ----- Point No.5 (REPEATABLE READ) -----------------
@@ -139,6 +142,11 @@ commit transaction
 -- tx 2 won't be able to insert the row
 insert into SavedData values (5, 'data phantom 2')
 print 'done'
+
+
+
+----- Point No.7 (table hint nolock) -----------------
+
 
 
 
