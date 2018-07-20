@@ -4,10 +4,10 @@ import com.learn.DBUtils;
 import com.learn.hibernate.mapping.Student;
 import org.hibernate.Session;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.orm.hibernate5.SpringSessionContext;
 import org.springframework.transaction.TransactionDefinition;
-import org.springframework.jdbc.datasource.DataSourceUtils;
 
 public class HibernateTransactionExamples {
 	/**
@@ -30,8 +30,15 @@ public class HibernateTransactionExamples {
 	 * session is bind to session factory
 	 * connection is bind to datasource
 	 *
+	 * TODO. single tx single jdbctemplate
+	 * TODO. single tx single hibernate
+	 * TODO. single tx hibernate + jdbc
+	 * TODO. nested tx (no new) -> show no new session created
+	 * TODO. nested tx (require new) -> show steps new session created, current session suspended
+	 * {@link org.springframework.transaction.support.AbstractPlatformTransactionManager#cleanupAfterCompletion} resume
+	 *
 	 */
-	public static void newTransactionNested() {
+	public static void demo() {
 		JdbcTemplate jdbcTemplate = DBUtils.getJdbcTemplate();
 
 		DBUtils.doInTransaction(status -> {
@@ -47,6 +54,7 @@ public class HibernateTransactionExamples {
 				}, TransactionDefinition.ISOLATION_READ_COMMITTED, TransactionDefinition.PROPAGATION_REQUIRES_NEW);
 			} catch	(Exception e) {}
 
+			Session session2 = DBUtils.getSession();
 			return null;
 		}, TransactionDefinition.ISOLATION_READ_COMMITTED, TransactionDefinition.PROPAGATION_REQUIRED);
 
