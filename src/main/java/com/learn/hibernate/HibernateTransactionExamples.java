@@ -38,24 +38,17 @@ public class HibernateTransactionExamples {
 			Session session = DBUtils.getSession();
 			session.save(new Student("test student"));
 
-			// there is a existing tx, since PROPAGATION_REQUIRES_NEW, we will create a new session (handleExistingTransaction -> suspend current tx -> doBegin -> create new session)
-			// otherwise return the current tx
-			// after this is done (either rollback or commit), hibernate tx manager will call doCleanupAfterCompletion()
-			// which will close the current session
 			try {
 				DBUtils.doInTransaction(s -> {
-//					Session session2 = DBUtils.getSession();
-//					session2.save(new Student("yuqing2"));
+					Session session2 = DBUtils.getSession();
+					session2.save(new Student("yuqing2"));
 					jdbcTemplate.execute("insert into Student (name, age) values ('jdbc test', 22)");
-					throw new RuntimeException("asdasd");
-//					return null;
+					return null;
 				}, TransactionDefinition.ISOLATION_READ_COMMITTED, TransactionDefinition.PROPAGATION_REQUIRES_NEW);
 			} catch	(Exception e) {}
 
 			return null;
 		}, TransactionDefinition.ISOLATION_READ_COMMITTED, TransactionDefinition.PROPAGATION_REQUIRED);
-
-		jdbcTemplate.execute("insert into Student (name, age) values ('jdbc test 2', 23)");
 
 		System.out.println("done!");
 	}

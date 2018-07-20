@@ -66,8 +66,12 @@ insert into SavedData values (2, 'uncommitted data')
 -- tx 2 tries to read that row, since doesn't need to get a S lock, (dirty) read can happen
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED
 begin transaction
-	select * from SavedData
+select * from SavedData
 commit transaction
+
+-- nolock table hint works the same way
+select * from SavedData with(nolock)
+
 
 
 ----- Point No.5 (iso LEVEL READ COMMITTED) -----------------
@@ -85,8 +89,6 @@ begin transaction
 	select * from SavedData
 commit transaction
 
--- nolock table hint works the same way
-select * from SavedData with(nolock)
 
 
 
