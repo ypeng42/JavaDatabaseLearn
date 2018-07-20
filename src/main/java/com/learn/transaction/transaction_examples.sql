@@ -100,6 +100,21 @@ insert into SavedData values (2, 'dirty data 2')
 -- non-repeatable read not allowed (a.k.a this won't happen: tx 1 reads row 1, tx 2 updates row 1, tx 1 reads row 1 again and get different data; tx 2 won't be able to update row read by tx 1)
 -- S lock held until end of transaction
 
+--Demo: what is non-repeatable read?
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+begin transaction
+select * from SavedData where id = 1
+WAITFOR DELAY '00:00:05'
+commit transaction
+
+--
+begin transaction
+update SavedData set textData = 'updated data' where id = 1 -- change it to 2 works
+print 'done'
+commit transaction
+
+
+
 -- tx 1 reads a row, the S lock will be there for 5 minutes
 SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
 begin transaction
@@ -125,13 +140,15 @@ insert into SavedData values (3, 'data 3')
 -- phantom read not allowed
 
 -- What is phantom read??
--- tx 1 retrieves a set of rows satisfying a given condition
+-- tx 1 retrieves a set of rows satisfying a given condition (not 1 row, but a set of rows)
+-- in this iso lvl, not only update not allowed, but insertion/deletion of range of row is not allowed
 select * from SavedData where textData like 'data%'
 WAITFOR DELAY '00:00:10'
 select * from SavedData where textData like 'data%'
 
 -- during those 5 seconds, tx 2 inserts or updates a row meets that condition
 insert into SavedData values (4, 'data phantom 1')
+
 
 -- how is phantom read prevented?
 -- range lock hold until end of tx
@@ -147,27 +164,29 @@ print 'done'
 
 
 
------ Point No.7 (table hint nolock) -----------------
-
 
 
 
 
 ----- First row will be committed -----
 begin transaction
-	insert into SavedData values (1, 'should be rolled back')
+	insert into SavedData values (1, 'example 1') -- not rolled back
 	insert into SavedData values (1, 'more than 20 char asdasdad askdjhasdhjk') -- error
 commit transaction
 
+
 ----- Nothing will be committed -----
 begin transaction
-	insert into SavedData values (1, 'asd')
+	insert into SavedData values (1, 'example 2') -- roll back
 	alter table SavedData alter column textData varchar(2) -- error
 commit transaction
 
+
+
+
+
 -- Why in both cases, there is 1 error in tx, but 1 is rolled back the other is not?
 
--- the reason is swql server views the second error more servere than the 1st one
 -- there is a setting called XACT_ABORT, which indicates whether rollback tx when error happens (default is off)
 -- a.k.a, don't rollback when error happens
 -- but if sql server thinks the error is severe enough, it will rollback tx even when  XACT_ABORT = off
