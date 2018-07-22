@@ -93,11 +93,9 @@ public class DBUtils {
 	 *	Return existing session if there is. If not, return a new session.
 	 */
 	public static Session getSession() {
+		//if do it in a tx, then don't need to call openSession(), spring tx will open session
 		SessionFactory factory = (SessionFactory) context.getBean("sessionFactory_1");
 		Session session = factory.getCurrentSession();
-		if (session == null) {
-			session = factory.openSession();
-		}
 
 		return session;
 	}

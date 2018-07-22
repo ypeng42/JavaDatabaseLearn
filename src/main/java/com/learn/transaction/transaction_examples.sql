@@ -105,6 +105,7 @@ SET TRANSACTION ISOLATION LEVEL READ COMMITTED
 begin transaction
 select * from SavedData where id = 1
 WAITFOR DELAY '00:00:05'
+select * from SavedData where id = 1
 commit transaction
 
 --

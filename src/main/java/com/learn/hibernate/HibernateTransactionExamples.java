@@ -40,7 +40,6 @@ public class HibernateTransactionExamples {
 	 */
 	public static void demo() {
 		JdbcTemplate jdbcTemplate = DBUtils.getJdbcTemplate();
-
 		DBUtils.doInTransaction(status -> {
 			Session session = DBUtils.getSession();
 			session.save(new Student("test student"));
@@ -54,7 +53,6 @@ public class HibernateTransactionExamples {
 				}, TransactionDefinition.ISOLATION_READ_COMMITTED, TransactionDefinition.PROPAGATION_REQUIRES_NEW);
 			} catch	(Exception e) {}
 
-			Session session2 = DBUtils.getSession();
 			return null;
 		}, TransactionDefinition.ISOLATION_READ_COMMITTED, TransactionDefinition.PROPAGATION_REQUIRED);
 
