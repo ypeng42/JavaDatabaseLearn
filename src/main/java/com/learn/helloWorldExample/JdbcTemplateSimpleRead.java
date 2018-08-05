@@ -1,4 +1,4 @@
-package com.learn.jdbcTemplate;
+package com.learn.helloWorldExample;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
