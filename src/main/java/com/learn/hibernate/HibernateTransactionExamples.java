@@ -40,6 +40,8 @@ public class HibernateTransactionExamples {
 	 */
 	public static void demo() {
 		JdbcTemplate jdbcTemplate = DBUtils.getJdbcTemplate();
+		// During rollback, the inner tx will be ignored, and only the out most tx will be rolled back.
+		// each tx will be checked whether it is 'New', and only the out most tx is 'New'
 		DBUtils.doInTransaction(status -> {
 			Session session = DBUtils.getSession();
 			session.save(new Student("test student"));
