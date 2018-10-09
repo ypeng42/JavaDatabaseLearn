@@ -7,7 +7,7 @@ import org.hibernate.event.internal.DefaultSaveEventListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class hibernateHelloWorld {
+public class learnHowHibernateSave {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("databases.xml");
 		SessionFactory factory = (SessionFactory) context.getBean("sessionFactory_1");
@@ -29,16 +29,14 @@ public class hibernateHelloWorld {
 		 * 3. {@link DefaultSaveEventListener#entityIsTransient} -> save with generated id bla bla bla ->
 		 * 4. {@link org.hibernate.event.internal.AbstractSaveEventListener#performSave}
 		 *
-		 * 5. {@link org.hibernate.event.internal.AbstractSaveEventListener#addInsertAction} to ActionQueue
+		 * 5. {@link org.hibernate.event.internal.AbstractSaveEventListener#addInsertAction} to ActionQueue, right after adding to queue, it will be executed
 		 *
 		 * 6. callback -> {@link org.hibernate.action.internal.EntityIdentityInsertAction#execute}
 		 *
-		 * 7. actually does the work -> {@link org.hibernate.persister.entity.AbstractEntityPersister#insert} TODO who sets sqlIdentityInsertString here??
+		 * 7. actually does the work -> {@link org.hibernate.persister.entity.AbstractEntityPersister#insert}, the sql is ALREADY HERE!!!
+		 * a.k.a sqlIdentityInsertString
 		 *
-		 *
-		 *
-		 * Init:
-		 * {@link org.hibernate.persister.entity.AbstractEntityPersister#doLateInit} already sets up sqlIdentityInsertString, TODO what are those ???? what is benefit get out of this??? read javadoc of persister
+		 * 8. During {@link org.hibernate.persister.entity.AbstractEntityPersister#doLateInit}, the insert sql is already set up in {@link org.hibernate.persister.entity.AbstractEntityPersister#generateIdentityInsertString}
 		 */
 
 		System.out.println("done!");

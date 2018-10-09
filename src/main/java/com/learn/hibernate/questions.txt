@@ -1,0 +1,10 @@
+#. how session factory creates a session?
+
+#. how show_sql works?
+
+#. what is a session really?
+
+#. what is event? why need event?
+
+#. what is entityMetamodel?
+what is lob properties?
