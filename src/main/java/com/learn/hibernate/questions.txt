@@ -7,4 +7,17 @@
 #. what is event? why need event?
 
 #. what is entityMetamodel?
-what is lob properties?
+
+what is lob properties? lob stands for large object
+
+#. what is persister? (it implements a tons of interface)
+EntityPersister has good comment in it
+EntityPersister has several key action like   update(), insert(),lock() etc
+explain what is processInsertGeneratedProperties(), long comment there
+
+
+#. how generateIdentityInsertString() works?
+what is Insert? (a class to create sql string)
+
+why includeProperty(), isPropertyOfTable() operates on array?
+who sets columns to Insert?

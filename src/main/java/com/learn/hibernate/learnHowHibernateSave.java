@@ -34,7 +34,7 @@ public class learnHowHibernateSave {
 		 * 6. callback -> {@link org.hibernate.action.internal.EntityIdentityInsertAction#execute}
 		 *
 		 * 7. actually does the work -> {@link org.hibernate.persister.entity.AbstractEntityPersister#insert}, the sql is ALREADY HERE!!!
-		 * a.k.a sqlIdentityInsertString
+		 * a.k.a sqlIdentityInsertString   insert() is interface func, the delegate can be ignored for now, since the sql is more important.  Get sql from getSQLIdentityInsertString()
 		 *
 		 * 8. During {@link org.hibernate.persister.entity.AbstractEntityPersister#doLateInit}, the insert sql is already set up in {@link org.hibernate.persister.entity.AbstractEntityPersister#generateIdentityInsertString}
 		 */

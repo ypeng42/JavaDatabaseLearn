@@ -1,0 +1,10 @@
+1. not all files are created equal. Some classes contributes more to overall understanding that others.
+Ex. some classes have far more comments than other, normally, the more comment it has, the more important it is, learn those files first.
+
+
+2. Normally context means those are bunch of useful info, but I have no idea how to name them, so I just call them together as 'Context'
+
+
+3. TODO how about create a intellij plugin to count lines of comment?? normally the importance is proportional to lines of comments
+
+4.
