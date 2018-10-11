@@ -16,8 +16,21 @@ EntityPersister has several key action like   update(), insert(),lock() etc
 explain what is processInsertGeneratedProperties(), long comment there
 
 
-#. how generateIdentityInsertString() works?
+#. how generateIdentityInsertString() works? (just a sql to be run)
 what is Insert? (a class to create sql string)
 
 why includeProperty(), isPropertyOfTable() operates on array?
-who sets columns to Insert?
+who sets columns to Insert? (entityMetamodel)
+
+#. in AbstractEntityPersister's constructor what is persistentClass, which used to make model?
+
+when is persister created? (when creating session factory -> persister factory impl)
+
+what is entityBinding? (also type PersistentClass)
+
+what is service registry??
+
+not much comment found for PersistentClass or its extended interface, see where it's created??
+feel like going up will be helpful
+
+what is metadataimpl?? (implementation of meta data interface)

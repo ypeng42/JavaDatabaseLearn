@@ -37,6 +37,13 @@ public class learnHowHibernateSave {
 		 * a.k.a sqlIdentityInsertString   insert() is interface func, the delegate can be ignored for now, since the sql is more important.  Get sql from getSQLIdentityInsertString()
 		 *
 		 * 8. During {@link org.hibernate.persister.entity.AbstractEntityPersister#doLateInit}, the insert sql is already set up in {@link org.hibernate.persister.entity.AbstractEntityPersister#generateIdentityInsertString}
+		 *
+		 *
+		 *
+		 * {@link org.hibernate.persister.internal.PersisterFactoryImpl#createEntityPersister} persisterClass is created here
+		 * -> {@link org.hibernate.persister.internal.StandardPersisterClassResolver#getEntityPersisterClass}
+		 *
+		 * seems like {@link org.hibernate.cfg.Configuration#buildSessionFactory} is a good place to start, what is meta data? how we get it?
 		 */
 
 		System.out.println("done!");
