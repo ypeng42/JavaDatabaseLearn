@@ -28,9 +28,13 @@ when is persister created? (when creating session factory -> persister factory i
 
 what is entityBinding? (also type PersistentClass)
 
-what is service registry??
-
 not much comment found for PersistentClass or its extended interface, see where it's created??
 feel like going up will be helpful
 
 what is metadataimpl?? (implementation of meta data interface)
+
+what is metaDataSource and service registry? (Read metadataSource's java doc)
+
+what is resourcePatternResolver?? (just a way to get resource, we only get class loader from it here)
+
+BootstrapServiceRegistryImpl's constructor has several service bind, what are they?

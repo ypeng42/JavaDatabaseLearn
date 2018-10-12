@@ -44,6 +44,16 @@ public class learnHowHibernateSave {
 		 * -> {@link org.hibernate.persister.internal.StandardPersisterClassResolver#getEntityPersisterClass}
 		 *
 		 * seems like {@link org.hibernate.cfg.Configuration#buildSessionFactory} is a good place to start, what is meta data? how we get it?
+		 *
+		 * LocalSessionFactoryBuilder extends Configuration
+		 *
+		 * session factory builder -> session factory
+		 *
+		 * remember in xml, local sesion factory bean only has packagesToScan, hibernateProperties, dataSource being set
+		 *
+		 * {@link org.springframework.orm.hibernate5.LocalSessionFactoryBean#getMetadataSources}
+		 *
+		 * back to localSessionFactoryBuilder#scanPackages, it has sth to do with metadataSources
 		 */
 
 		System.out.println("done!");
