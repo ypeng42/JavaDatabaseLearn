@@ -53,7 +53,18 @@ public class learnHowHibernateSave {
 		 *
 		 * {@link org.springframework.orm.hibernate5.LocalSessionFactoryBean#getMetadataSources}
 		 *
-		 * back to localSessionFactoryBuilder#scanPackages, it has sth to do with metadataSources
+		 * back to localSessionFactoryBuilder#scanPackages, it has sth to do with metadataSources.
+		 * TODO In the method, study how this.resourcePatternResolver.getResources() work, I can learn a ton of class loading staff. Really neat spring io.
+		 *
+		 * next step, what does metadataBuilder.build() do? Configuration#buildSessionFactory
+		 *
+		 * the metadata builder doesn't have too much stuff put into it, only stategy for coming up with names.
+		 *
+		 * TODO The MetadataBuildingOptionsImpl static class is pretty neat, why it's good?
+		 *
+		 * meta data source is like raw material, metadata is the final product
+		 *
+		 * learn from MetadataBuildingProcess
 		 */
 
 		System.out.println("done!");

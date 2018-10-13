@@ -38,3 +38,5 @@ what is metaDataSource and service registry? (Read metadataSource's java doc)
 what is resourcePatternResolver?? (just a way to get resource, we only get class loader from it here)
 
 BootstrapServiceRegistryImpl's constructor has several service bind, what are they?
+
+what is entityTypeFilters? who sets that??
