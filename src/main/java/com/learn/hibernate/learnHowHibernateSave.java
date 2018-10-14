@@ -64,7 +64,27 @@ public class learnHowHibernateSave {
 		 *
 		 * meta data source is like raw material, metadata is the final product
 		 *
-		 * learn from MetadataBuildingProcess
+		 * learn from MetadataBuildingProcess class
+		 *
+		 * why ScanningCoordinator is singleton? why not just make the method static (answer here: https://stackoverflow.com/questions/2765060/why-use-a-singleton-instead-of-static-methods)
+		 *
+		 * prepare() does little, most work is skipped
+		 *
+		 * the MetadataSourceProcessor inner class is neat, it's a cleaner way than creating 20 private helper methods
+		 *
+		 * whether processing xml or java class, all follows MetadataSourceProcessor interface
+		 *
+		 * {@link org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl} is the class doing all the work
+		 *
+		 * TODO what is XClass?
+		 *
+		 * Java Class implements Type, don't know this before
+		 *
+		 * TODO learn what is visitor design pattern?
+		 * TODO learn the TypeEnvironment's class comment is pretty interesting
+		 * TODO learn when to use private static class? (ex. TypeKey)
+		 * TODO learn what is JavaReflectionManager.this? (https://stackoverflow.com/questions/5666134/what-is-the-difference-between-class-this-and-this-in-java)
+		 *
 		 */
 
 		System.out.println("done!");
