@@ -85,6 +85,9 @@ public class learnHowHibernateSave {
 		 * TODO learn when to use private static class? (ex. TypeKey)
 		 * TODO learn what is JavaReflectionManager.this? (https://stackoverflow.com/questions/5666134/what-is-the-difference-between-class-this-and-this-in-java)
 		 *
+		 * AnnotationBinder's trick to anns variable fresh is pretty neat
+		 *
+		 * processEntityHierarchies might does some work
 		 */
 
 		System.out.println("done!");
