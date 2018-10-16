@@ -87,7 +87,9 @@ public class learnHowHibernateSave {
 		 *
 		 * AnnotationBinder's trick to anns variable fresh is pretty neat
 		 *
-		 * processEntityHierarchies might does some work
+		 * AnnotationMetadataSourceProcessorImpl#processEntityHierarchies does all the work
+		 * TODO what is AnnotationBinder.bindClass?
+		 * TODO what is MetadataBuildingContext?
 		 */
 
 		System.out.println("done!");
