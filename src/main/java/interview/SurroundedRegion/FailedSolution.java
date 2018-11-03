@@ -1,4 +1,4 @@
-package interview.Surrounded_Region;
+package interview.SurroundedRegion;
 
 public class FailedSolution {
 	/**
@@ -11,6 +11,8 @@ public class FailedSolution {
 	 * 5. this is a search problem, didn't recognize that, think it's a recursion problem
 	 * 6. reverse thought, should go from border to mark all connected dot, but go from middle instead, which is impossible
 	 * to do, for it to work, it will cause stack overflow exception (this one is KILLING me)
+	 * Wrong approach: 2h15m find out impossible
+	 * Right approach: 20m done, code is really clean
 	 *
 	 * thought when doing this one, I start implement recursion before feeling 100% certain about the idea, and
 	 * looking back, the recursion alg is just a mess. Start too soon.

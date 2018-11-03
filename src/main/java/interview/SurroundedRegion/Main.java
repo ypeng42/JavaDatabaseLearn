@@ -1,4 +1,4 @@
-package interview.Surrounded_Region;
+package interview.SurroundedRegion;
 
 public class Main {
 	public static void main(String[] args) {

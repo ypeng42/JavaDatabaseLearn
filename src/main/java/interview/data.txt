@@ -1,0 +1,14 @@
+11/2
+todo don't start too soon
+todo 2d array
+todo reverse thought
+(1) SurroundedRegion -> 2h15m (failed), -> 20m (second try after reading approach)
+
+11/3
+todo input check
+todo string&char api
+todo practice way to do mutation, common theme in str related problem
+todo still start before forming a complete alg
+todo notice how permutation setting is init
+(1) LetterCaseMutation -> 20m
+(2) ArrayToBST -> 13m
