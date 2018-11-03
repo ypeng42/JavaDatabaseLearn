@@ -12,3 +12,10 @@ todo still start before forming a complete alg
 todo notice how permutation setting is init
 (1) LetterCaseMutation -> 20m
 (2) ArrayToBST -> 13m
+todo review bst height, it's causing trouble when doing this
+todo nest Math.max() to get max of 3 items
+(3)DiameterBST -> 20m (not finished)
+todo read problem carefully! Miss to notice how to handle 0 if it's the leading digit
+todo do most necessary check first! ex. i < length, otherwise out of bound exception
+todo forget to add a check for an edge case
+(4)WordAbbr -> 20m (failed)
