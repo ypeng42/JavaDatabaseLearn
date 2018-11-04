@@ -18,4 +18,17 @@ todo nest Math.max() to get max of 3 items
 todo read problem carefully! Miss to notice how to handle 0 if it's the leading digit
 todo do most necessary check first! ex. i < length, otherwise out of bound exception
 todo forget to add a check for an edge case
+todo inline parse str to number, char - '0' to get int, val *= 10 for each iteration
 (4)WordAbbr -> 20m (failed)
+
+11/4
+todo https://github.com/awangdev/LintCode/blob/master/Java/Design%20Search%20Autocomplete%20System.java
+todo String toCharArray
+todo Map putIfAbsent, getOrDefault
+todo inner class field make public so don't need stupid getter
+todo var name as succiint as possible! char -> s, string type is s, current -> curr, freq, result -> rst
+todo inline single if return
+todo learn PriorityQueue
+(1) Design Auto Search Complete System -> don't think ready, skipped
+todo when doing charAt, always check index >= 0
+(2) Back space string compare
