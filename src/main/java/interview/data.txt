@@ -1,7 +1,7 @@
 11/2
 todo don't start too soon
 todo 2d array
-todo reverse thought
+todo backward thinking! need practice
 (1) SurroundedRegion -> 2h15m (failed), -> 20m (second try after reading approach)
 
 11/3
@@ -31,4 +31,5 @@ todo inline single if return
 todo learn PriorityQueue
 (1) Design Auto Search Complete System -> don't think ready, skipped
 todo when doing charAt, always check index >= 0
-(2) Back space string compare
+todo backward thinking! It works!
+(2) Back space string compare -> 30m (exceed time, but get the best solution )

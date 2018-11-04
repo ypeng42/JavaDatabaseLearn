@@ -1,10 +1,14 @@
 package interview.backStringCompare;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class experiment {
 	public static void main(String[] args) {
 		experiment e = new experiment();
 		System.out.println(e.backspaceCompare("a", "dbc##a"));
 
+		Queue q = new LinkedList();
 	}
 
 	public boolean backspaceCompare(String S, String T) {

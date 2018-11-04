@@ -1,7 +1,9 @@
 package interview.backStringCompare;
 
 /**
- * Aim for o(n) time and o(1) space
+ * Aim for o(n) time and o(1) space.
+ *
+ * I feel like this is more elegant than solution I saw online
  */
 public class Solution {
 	public boolean backspaceCompare(String s, String t) {
@@ -12,6 +14,7 @@ public class Solution {
 			i = setBack(s, i);
 			j = setBack(t, j);
 
+			// after setBack, index could be negative. Remember anything change before charAt() -> index check!
 			if (i >= 0 && j >= 0) {
 				if (t.charAt(j) != s.charAt(i)) {
 					return false;
@@ -22,13 +25,13 @@ public class Solution {
 			}
 		}
 
+		// for case:
+		// a
+		// vx##a
 		i = setBack(s, i);
 		j = setBack(t, j);
 
 		return i < 0 && j < 0;
-		// a, bc##a
-
-		// b#cx#d, a#c##d
 	}
 
 	/**
