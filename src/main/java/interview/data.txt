@@ -38,4 +38,9 @@ todo review top-down vs bottom up recursion (left, right, curr  vs  left, right)
 todo tuple is a good name!
 (4) Kth smallest in sorted matrix
 todo it's actually not bad, but when doing it, my brain just had no idea what's going on
+todo when doing recursion, it's OK to have a class variable to track progress!! Or, use a 1 item array also works, see https://scyforce.gitbooks.io/leetcode/content/convert_binary_search_tree_to_sorted_doubly-linked_list.html
 (5) BST to sorted DLL -> look up answer
+
+11/5
+todo thought when there are 2 parties, use 1 variable to track progress. 1 party ++, 1 party --
+(1) design tic tac toe
