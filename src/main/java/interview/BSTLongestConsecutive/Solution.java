@@ -9,6 +9,27 @@ class Solution {
 		return findMaxStrik(root).max + 1;
 	}
 
+	/**
+	 *   1
+	 *    \
+	 *     2
+	 *      \
+	 *       3
+	 *        \
+	 *         4
+	 *          \
+	 *           6
+	 *            \
+	 *             7
+	 *              \
+	 *               8
+	 *
+	 * At 4, the max len is 3 (6,7,8)
+	 * Back at 3, we see 3 and 4 are consecutive, but there is no way to know whether add 1 to 4's max.
+	 * That's why we need "cont" to track whether strike is broken.
+	 *
+	 * Going top down has no such problem, when we get to 6, we reset to 1!
+	 */
 	class Pair {
 		int max;
 		boolean cont;

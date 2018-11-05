@@ -33,3 +33,9 @@ todo learn PriorityQueue
 todo when doing charAt, always check index >= 0
 todo backward thinking! It works!
 (2) Back space string compare -> 30m (exceed time, but get the best solution )
+todo review top-down vs bottom up recursion (left, right, curr  vs  left, right)
+(3) BST Longest Consecutive
+todo tuple is a good name!
+(4) Kth smallest in sorted matrix
+todo it's actually not bad, but when doing it, my brain just had no idea what's going on
+(5) BST to sorted DLL -> look up answer
