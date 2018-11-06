@@ -44,3 +44,8 @@ todo when doing recursion, it's OK to have a class variable to track progress!! 
 11/5
 todo thought when there are 2 parties, use 1 variable to track progress. 1 party ++, 1 party --
 (1) design tic tac toe
+todo Practice the trick of using running sum to get the sum of sub array + hashmap
+todo differentiate between ctti 16.17 Contiguous sequence, which doesn't have a target K, so hashmap is bad
+(2) max size sub array to sum k
+todo just a horrible day, thought process about duplicate is a mess
+(3) Two sum 3
