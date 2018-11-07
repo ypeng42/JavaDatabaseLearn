@@ -68,3 +68,9 @@ x < 0 || x >= grid.length || y < 0 || y >= grid[0].length
 (2) Num of Island
 
 todo Math.max(max, size[i]); is better than the stupid if check to update max
+
+todo practice dynamic programming on this, the nlogn is just impossible to come up
+Longest increasing sequence
+
+11/7
+todo pad, prepend -> good name
