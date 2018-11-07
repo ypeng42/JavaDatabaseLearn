@@ -49,3 +49,22 @@ todo differentiate between ctti 16.17 Contiguous sequence, which doesn't have a 
 (2) max size sub array to sum k
 todo just a horrible day, thought process about duplicate is a mess
 (3) Two sum 3
+
+11/6
+todo https://github.com/awangdev/LintCode 133- 135
+todo Pratice implement it in 5 mins
+todo union(x,y) time is log(m*n)   https://en.wikipedia.org/wiki/Proof_of_O(log*n)_time_complexity_of_union%E2%80%93find
+(1) union find 3 problems
+todo idea related to SurroundedRegion
+
+todo 2d array 三连
+if (grid == null || grid.length == 0 || grid[0].length == 0) {
+	return 0;
+}
+
+todo remember every point in a 2d array CAN be turned into a UNIQUE index (x * rowLength + y); rowLength = grid[0].length;
+todo border check 4连, it's find to repeat a little, we prefer to have all border check logic in ONE place
+x < 0 || x >= grid.length || y < 0 || y >= grid[0].length
+(2) Num of Island
+
+todo Math.max(max, size[i]); is better than the stupid if check to update max
