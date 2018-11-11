@@ -74,3 +74,10 @@ Longest increasing sequence
 
 11/7
 todo pad, prepend -> good name
+
+11/9
+todo word search 1, word search 2  (toCharArray), Letter Combinations of a Phone Number, permuatation (lvl.size = arr.size, common trick, new ArrayList<>(baselist) deep copy)
+
+11/11
+todo INT_MAX
+todo int sindex = 0, tindex = 0, slen = s.length, tlen = t.length, start = -1, len = slen;
