@@ -63,6 +63,8 @@ class AutocompleteSystem {
 		if (node.freq.isEmpty()) return rst;
 		PriorityQueue<Pair> queue = new PriorityQueue<>(
 			(a, b) -> a.count == b.count ? b.s.compareTo(a.s) : a.count - b.count);
+
+		// no need to build the whole queue
 		for (Map.Entry<String, Integer> entry : node.freq.entrySet()) {
 			if (queue.size() < 3 || entry.getValue() >= queue.peek().count) {
 				queue.offer(new Pair(entry.getKey(), entry.getValue()));

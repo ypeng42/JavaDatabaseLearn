@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * The key to understand is
- * 10 7 2 5 8
+ * 10 7 2 5 8 3 7
  *
  * list is 2 5 8
  *
@@ -34,7 +34,7 @@ class Solution {
 	public int binarySearch(List<Integer> list, int target) {
 		int start = 0;
 		int end = list.size() - 1;
-		while (start + 1 < end) {
+		while (start + 1 < end) { // start mid end, start + 1 < end to make sure we have space for mid
 			int mid = start + (end - start) / 2;
 			if (list.get(mid) == target) {
 				return mid;

@@ -81,3 +81,4 @@ todo word search 1, word search 2  (toCharArray), Letter Combinations of a Phone
 11/11
 todo INT_MAX
 todo int sindex = 0, tindex = 0, slen = s.length, tlen = t.length, start = -1, len = slen;
+todo review AutoCompleteSystem, for find top X, don't need to build the whole queue first, keep the queue to size X is enough!!
