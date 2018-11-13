@@ -82,3 +82,12 @@ todo word search 1, word search 2  (toCharArray), Letter Combinations of a Phone
 todo INT_MAX
 todo int sindex = 0, tindex = 0, slen = s.length, tlen = t.length, start = -1, len = slen;
 todo review AutoCompleteSystem, for find top X, don't need to build the whole queue first, keep the queue to size X is enough!!
+
+11/12
+todo be really careful with using Integer.MAX_VALUE, cause input might larger than that.
+validateBST
+todo backward thinking, if increase then decreasing is false, simple idea but powerful
+monotonic array
+todo for (col = left; col < right; col++), no need to declare int i
+todo Be careful, after for loop, i will be +1, need to do -- to reset it after for loop
+spiral array
