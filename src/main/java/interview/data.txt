@@ -91,3 +91,14 @@ monotonic array
 todo for (col = left; col < right; col++), no need to declare int i
 todo Be careful, after for loop, i will be +1, need to do -- to reset it after for loop
 spiral array
+
+11/13
+todo word search 2's way is better c - 'a' to get index, hashmap is also fine i guess ( Map is more applicable to all chars, not limited to 256 ASCII)
+class TrieNode {
+        String word;
+        TrieNode[] children;
+        public TrieNode() {
+            this.word = null;
+            this.children = new TrieNode[26];
+        }
+    }
