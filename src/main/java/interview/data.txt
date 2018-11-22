@@ -102,3 +102,11 @@ class TrieNode {
             this.children = new TrieNode[26];
         }
     }
+
+11/18
+TODO don't use bfs for topo sort, always use dfs
+alien dict
+
+11/19
+interview
+populating next pointer in binary tree
