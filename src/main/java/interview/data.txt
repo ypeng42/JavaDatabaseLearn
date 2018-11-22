@@ -110,3 +110,16 @@ alien dict
 11/19
 interview
 populating next pointer in binary tree
+
+11/22
+todo idea: 2 pointers + set and replace
+MoveZeros
+todo for binary, curr pos = sum % 2 because carry over brings 2, carry = sum / 2, carry is how many 2 we have
+AddBinary
+todo ask enough questions before proceed
+IntersactionTwoArray
+todo for array, if solution may be >= n*n, try sorting it first, doesn't hurt
+3sum
+todo when doing position binary search, iterative approach is MUCH cleaner!
+todo when doing binary search, be crystal clear, add if check to clarify logic, don't guess!
+minSizeArray
