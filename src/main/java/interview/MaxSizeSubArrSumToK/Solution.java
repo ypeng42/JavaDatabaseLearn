@@ -22,9 +22,14 @@ class Solution {
 		for (int i = 0; i < nums.length; i++) {
 			sum += nums[i];
 
+			/*
+			 * this check is necessary. ex. for -1, 1, 5, -2, 3. target 3
+			 * Without the check, we will return 2 -> [5, -2]
+			 * this algorithm doesn't recognize the first 0 is before we start iterating
+			 *
+			 * Another way to do the check is do map.put(0, -1)
+			 */
 			if (sum == k) {
-				// we move from 0 onward, it means all items up to this one adds up to k, it IS the max
-				// ex. 3, -1, 1, -1, 1, -1000, 1000
 				max = i + 1;
 			}
 
