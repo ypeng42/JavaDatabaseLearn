@@ -123,3 +123,11 @@ todo for array, if solution may be >= n*n, try sorting it first, doesn't hurt
 todo when doing position binary search, iterative approach is MUCH cleaner!
 todo when doing binary search, be crystal clear, add if check to clarify logic, don't guess!
 minSizeArray
+
+11/23
+todo stream() method call, Collections.sort(), Collection is an interface, list.size(), str.length(), list.sort(), turn a set to array
+binaryTreeVerticalOrder
+todo Arrays.asList()
+todo when doing bfs, use the size trick, don't store 2 lists, which is really inefficient
+todo when doing bfs, always use the first one to initialize the queue, start from the second one
+Letter Combination of a Phone number
