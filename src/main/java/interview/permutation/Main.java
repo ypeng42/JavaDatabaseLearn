@@ -7,5 +7,7 @@ public class Main {
 //		List<List<Integer>> rst = s.permute(input);
 //		System.out.println(rst);
 
+		SolutionLevelTwo s2 = new SolutionLevelTwo();
+		s2.permuteUnique(new int[]{1, 1, 2});
 	}
 }

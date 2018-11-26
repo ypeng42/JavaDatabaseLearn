@@ -131,3 +131,9 @@ todo Arrays.asList()
 todo when doing bfs, use the size trick, don't store 2 lists, which is really inefficient
 todo when doing bfs, always use the first one to initialize the queue, start from the second one
 Letter Combination of a Phone number
+
+11/24
+todo track remaining 1 variable (use 0 implicitly as target), track target len & curr len -> 2 variables
+Permutation 2
+todo substr(int), substr(int, int)
+remove invalid Parentheses
