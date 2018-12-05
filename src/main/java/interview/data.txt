@@ -137,3 +137,43 @@ todo track remaining 1 variable (use 0 implicitly as target), track target len &
 Permutation 2
 todo substr(int), substr(int, int)
 remove invalid Parentheses
+
+11/28
+todo interview: remember pq returns min First! so if you want to give precedence to an item, when compare to other item, return -1!
+
+11/29
+todo use long to record sum of int
+
+11/29
+Accounts Merge
+todo union find can be done use a hashmap, which track of parent relationship.  You may need another map to track other info. Learn how to turn the map into a list
+
+11/30
+todo
+alien dict
+Binary Tree In-order traversal using stack no recursion
+Binary Tree maximum path sum
+todo NOTE: when find max sum, traverse through array or tree but DO NOT consider node < 0!
+Binary tree post-order T use 2 stacks
+
+cloeset number in sorted array todo practice edge case, check again, maybe simpler
+todo what is segment tree?
+Median   Kth largest element
+todo quick sort
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
